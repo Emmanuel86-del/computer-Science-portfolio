@@ -1,0 +1,29 @@
+
+import psutil
+import datetime
+
+def check_system_health():
+    print(f"--- System Report: {datetime.datetime.now()} ---")
+    
+    # Check CPU usage
+    cpu_usage = psutil.cpu_percent(interval=1)
+    print(f"CPU Usage: {cpu_usage}%")
+    
+    # Check Memory (RAM) usage
+    memory = psutil.virtual_memory()
+    print(f"RAM Usage: {memory.percent}%")
+    
+    # Check Disk Space
+    disk = psutil.disk_usage('/')
+    print(f"Disk Space Used: {disk.percent}%")
+    
+    # Troubleshooting Alerts
+
+    if cpu_usage > 80:
+        print("ALERT: High CPU usage detected!")
+    if memory.percent > 85:
+        print("ALERT: Low Memory available!")
+    print("-" * 40)
+
+if __name__ == "__main__":
+    check_system_health()
