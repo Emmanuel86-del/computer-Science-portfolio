@@ -1,0 +1,192 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio | Creative Developer</title>
+    <style>
+        /* CSS Variables for easy branding updates */
+        :root {
+            --primary-color: #2563eb;
+            --dark-bg: #0f172a;
+            --light-text: #f8fafc;
+            --gray-text: #94a3b8;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            background: rgba(15, 23, 42, 0.9);
+            position: sticky;
+
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 2rem; }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--light-text);
+            transition: var(--transition);
+        }
+        nav ul li a:hover { color: var(--primary-color); }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 { font-size: 4rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; color: var(--gray-text); max-width: 600px; }
+
+        /* Project Grid */
+        .section { padding: 5rem 10%; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+
+        .card {
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            transition: var(--transition);
+        }
+
+        .card:hover { transform: translateY(-10px); border-color: var(--primary-color); }
+
+        /* Contact Form */
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        input, textarea {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border: none;
+            background: #1e293b;
+            color: white;
+        }
+
+        button {
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        footer { text-align: center; padding: 2rem; color: var(--gray-text); }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">DEV.PORTFOLIO</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <h1>Building Digital Experiences.</h1>
+        <p>I specialize in clean code, responsive layouts, and modern UI/UX design. Let's build something meaningful together.</p>
+    </header>
+
+
+    <section id="projects" class="section">
+        <h2 style="text-align: center;">Featured Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>E-Commerce Platform</h3>
+                <p>A full-stack solution featuring real-time inventory and secure checkout.</p>
+            </div>
+            <div class="card">
+                <h3>SaaS Dashboard</h3>
+                <p>Data visualization tool built for high-performance analytics.</p>
+            </div>
+            <div class="card">
+                <h3>Task Manager</h3>
+                <p>A productivity app using local storage and drag-and-drop functionality.</p>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Get In Touch</h2>
+        <form id="contactForm">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Developer Portfolio. All 
+
+Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Form Interactivity
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thanks for reaching out! (This is a demo functionality)');
+            this.reset();
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
